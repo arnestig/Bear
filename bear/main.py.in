@@ -735,7 +735,7 @@ class Compilation:
         # type: (Compilation) -> Dict[str, Any]
         """ This method creates a compilation database entry. """
 
-        source = os.path.relpath(self.source, self.directory)
+        source = os.path.abspath(self.source)
         output = ['-o', self.output] if self.output else []
         return {
             'file': source,
